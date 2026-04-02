@@ -183,13 +183,13 @@ class Deposito(Transacao):
 def menu():
     menu = """\n
     ================ MENU ================
-    [d]\tDepositar
-    [s]\tSacar
-    [e]\tExtrato
-    [nc]\tNova conta
-    [lc]\tListar contas
-    [nu]\tNovo usuário
-    [q]\tSair
+    [1]\tDepositar
+    [2]\tSacar
+    [3]\tExtrato
+    [4]\tNova conta
+    [5]\tNovo usuário
+    [6]\tListar contas
+    [0]\tSair
     => """
 
     return input(textwrap.dedent(menu))
@@ -206,8 +206,25 @@ def recuperar_conta_cliente(cliente):
         print("O cliente não possui contas.")
         return None
 
-    # FIXME: não permuiite cliente escolher a conta
-    return cliente.contas[0]
+    if len(cliente.contas) == 1:
+        return cliente.contas[0]
+
+    print("\nContas disponíveis:")
+    for conta in cliente.contas:
+        print(f"Conta {conta.numero} | Agência {conta.agencia}")
+
+    try:
+        numero_conta = int(input("Informe o número da conta desejada: "))
+    except ValueError:
+        print("Número de conta inválido.")
+        return None
+
+    for conta in cliente.contas:
+        if conta.numero == numero_conta:
+            return conta
+
+    print("Conta não encontrada para este cliente.")
+    return None
 
 
 def depositar(clientes):
@@ -332,20 +349,20 @@ def main():
     while True:
         opcao = menu()
 
-        if opcao == "d":
+        if opcao == "1":
             depositar(clientes)
-        elif opcao == "s":
+        elif opcao == "2":
             sacar(clientes)
-        elif opcao == "e":
+        elif opcao == "3":
             extrato(clientes)
-        elif opcao == "nu":
-            criar_cliente(clientes)
-        elif opcao == "nc":
+        elif opcao == "4":
             numero_conta = len(contas) + 1
             criar_conta(numero_conta, clientes, contas)
-        elif opcao == "lc":
+        elif opcao == "5":
+            criar_cliente(clientes)
+        elif opcao == "6":
             listar_contas(contas)
-        elif opcao == "q":
+        elif opcao == "0":
             break
         else:
             print("Operação inválida, por favor selecione novamente a operação desejada.")
