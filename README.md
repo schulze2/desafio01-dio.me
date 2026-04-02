@@ -105,39 +105,39 @@ python desafio\ v2.py
 
 ### Menu de Operações
 ```
-[d] - Depositar
-[s] - Sacar
-[e] - Extrato
-[nc] - Nova conta
-[lc] - Listar contas
-[nu] - Novo usuário
-[q] - Sair
+[1] - Depositar
+[2] - Sacar
+[3] - Extrato
+[4] - Nova conta
+[5] - Novo usuário
+[6] - Listar contas
+[0] - Sair
 ```
 
 ## 📝 Exemplo de Uso
 
 1. **Criar um novo usuário:**
-   - Selecione a opção `[nu]`
+   - Selecione a opção `[5]`
    - Informe CPF, nome, data de nascimento e endereço
 
 2. **Criar uma conta:**
-   - Selecione a opção `[nc]`
+   - Selecione a opção `[4]`
    - Informe o CPF do cliente
 
 3. **Realizar um depósito:**
-   - Selecione a opção `[d]`
+   - Selecione a opção `[1]`
    - Informe o CPF e o valor
 
 4. **Realizar um saque:**
-   - Selecione a opção `[s]`
+   - Selecione a opção `[2]`
    - Informe o CPF e o valor (respeitando limite e limite diário)
 
 5. **Consultar extrato:**
-   - Selecione a opção `[e]`
+   - Selecione a opção `[3]`
    - Informe o CPF
 
 6. **Listar contas:**
-   - Selecione a opção `[lc]`
+   - Selecione a opção `[6]`
 
 ## ⚙️ Requisitos de Sistema
 
@@ -155,7 +155,7 @@ python desafio\ v2.py
 
 ## 📌 Observações
 
-- Cliente pode ter múltiplas contas (funcionalidade implementada mas parcialmente no menu v2)
+- Cliente pode ter múltiplas contas e escolher qual conta utilizar nas operações
 - Todas as operações são registradas no histórico com timestamp
 - O sistema valida entrada de dados (conversão para float)
 - Interface amigável com feedback de operações
